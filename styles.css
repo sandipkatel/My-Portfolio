@@ -250,11 +250,11 @@ a:not(.social-link a):not(.project-tile a):hover {
     }
     
     #nav2 ul {
-        width: 65%;
+        width: 68%;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        margin-left: 25%;
+        margin-left: 28%;
     }
     
     .links {
@@ -316,7 +316,7 @@ a:not(.social-link a):not(.project-tile a):hover {
     }
     
     .project-tile {
-        max-width: 100%;
+        width: 100%;
     }
 
     footer > p > b {
