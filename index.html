@@ -36,7 +36,7 @@
                     <p><i>at Pulchowk Engineering Campus, Tribhuvan University</i></p>
                 </div>
                 <div id = "profile-pic">
-                    <img src="./Dependencies/profile_pic.png" alt = "Profile Picture" />
+                    <img src="./Dependencies/Sandip.png" alt = "Profile Picture" />
                 </div>
             </div>
             <div id = "hero">
@@ -107,31 +107,37 @@
                     <h1><u>Projects</u></h1>
                 </header>
                 <div id = "project-samples">
-                    <div class = "project-tile">
+                    <div class = "project-tile" id = "tribute-page">
                         <a href = "https://github.com/sandipkatel/Tribute-Page" target = "_blank"><img src = "./Dependencies/Projects/tribute_page.png" alt = "Free code camp's project Tribute Page"/>
                         <h4>Tribute Page</h4></a>
                     </div>
-                    <div class = "project-tile">
+                    <div class = "project-tile" id = "portfolio">
                         <a href = "https://github.com/sandipkatel/My-Portfolio" target = "_blank"><img src = "./Dependencies/Projects/portfolio.png" alt = "The website you are currently using" />
                         <h4>My Portfolio Website</h4></a>
                     </div>
-                    <div class = "project-tile">
+                    <div class = "project-tile" id = "sudoku">
                         <a href = "https://github.com/sandipkatel/Sudoku.git" alt = "_blank">
                             <img src = "./Dependencies/Projects/sudoku.png" alt = "Sample Project4" />
                             <h4>Sudoku</h4>
                         </a>
                     </div>
-                    <div class = "project-tile">
-                        <img src = "https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg" alt = "Sample Project3" />
-                        <h4>Calculator</h4>
+                    <div class = "project-tile" id = "phm">
+                        <a href = "https://github.com/sandipkatel/Nirogya" target = "_blank">
+                            <img src = "./Dependencies/Projects/phm.png" alt = "Sample Project4" />
+                            <h4>Personal Health Monitor</h4>
+                        </a>
                     </div>
-                    <div class = "project-tile">
-                        <img src = "https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg" alt = "Sample Project4" />
-                        <h4>Cat and Dog Image Seperator</h4>
+                    <div class = "project-tile" id = "calculator">
+                        <a href = "" target = "_blank">
+                            <img src = "https://cdn.freecodecamp.org/testable-projects-fcc/images/calc.png" alt = "Sample Project3" />
+                            <h4>Calculator</h4>
+                        </a>
                     </div>
-                    <div class = "project-tile">
-                        <img src = "https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg" alt = "Sample Project4" />
-                        <h4>Tic Tac Toe</h4>
+                    <div class = "project-tile" id = "ttt">
+                        <a href = "" target = "_blank">
+                            <img src = "https://cdn.freecodecamp.org/testable-projects-fcc/images/tic-tac-toe.png" alt = "Sample Project4" />
+                            <h4>Tic Tac Toe</h4>
+                        </a>
                     </div>
                 </div>
                 <div class = "button">
@@ -141,7 +147,7 @@
             <div id = "contact">
                 <header>
                     <h1><u>Contact Me</u></h1>
-                    <p>I am open for any suggestion or to have a chat</p>
+                    <p>I am open for any suggestion or to have a chat.</p>
                 </header>
                 <div class = "contact-info">
                     <table>
@@ -165,13 +171,22 @@
                     </table>
                 </div>
                 <div id = "message">
-                    <form action="" method="post" enctype="text/plain" autocomplete="on">
-                        <input id="name" name="name" type="text" placeholder = "Name" required />
-                        <input id = "email" type="email" name="Email " placeholder="Email" required />
-                        <input id = "subject" type="text" name="Subject " placeholder = "Subject"/>
-                        <textarea id = "message" name="Message " rows="4" cols="60" placeholder="Message...." required></textarea>
-                        <button id = "submit" type = "submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-                    </form>
+                    <!--<form action="mailto:babusandipkatel@gmail.com" method="post" enctype="text/plain" autocomplete="on">
+                        <input id="name" name="name" type="text" placeholder="Name" required>
+                        <input id="email" name="email" type="email" placeholder="Email" required>
+                        <input id="subject" name="subject" type="text" placeholder="Subject">
+                        <textarea id="message" name="message" rows="4" cols="60" placeholder="Message..." required></textarea>
+                        <button id="submit" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                    </form>-->
+                    <form action="https://getform.io/f/ebpdyplb" method="POST" autocomplete="on">
+                        <input id="name" name="name" type="text" placeholder="Name" required>
+                        <input id="email" name="email" type="email" placeholder="Email" required>
+                        <input id="subject" name="subject" type="text" placeholder="Subject">
+                        <textarea id="message" name="message" rows="4" cols="60" placeholder="Message..." required></textarea>
+                        <!-- add hidden Honeypot input to prevent spams -->
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        <button id="submit" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                      </form>
                 </div>
                 <div class = "contact-link">
                     <h2>Find me also on </h2>

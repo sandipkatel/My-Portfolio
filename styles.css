@@ -89,12 +89,16 @@ main > div {
     transform: translate(-50%, -50%);
 }
 
-#personal-intro {
+#story {
+    text-align: justify;   
+}
+
+#personal-intro{
     margin: 1rem;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    text-align: justify;
+    text-align: left;
 }
 
 button{    
@@ -276,6 +280,10 @@ a:not(.social-link a):not(.project-tile a):hover {
         width: 300px;
     }
 
+    .project-tile a h4 {
+        font-size: 14;
+    }
+
     form {
         width: 90vw;
     }
@@ -305,6 +313,19 @@ a:not(.social-link a):not(.project-tile a):hover {
     }
     .contact-link ul{
         gap:2em;
+    }
+    
+    .project-tile {
+        max-width: 100%;
+    }
+
+    footer > p > b {
+        display: none;
+    }
+
+    #calculator,
+    #ttt {
+        display: none;
     }
 }
 
