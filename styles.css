@@ -23,6 +23,7 @@ body {
     border: none;
     margin: 0 auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-width: 320px;
 }
 
 #navbar{
@@ -86,6 +87,7 @@ main > div {
 }
 
 #profile-pic{
+    position: relative;
     border: 4px solid var(--primary-border-color);
     background-color: var(--secondary-background-color);
     border-radius: 50%;
@@ -98,12 +100,13 @@ main > div {
 }
 
 #profile-pic img{
-    position: relative;
-    left: 40%;
-    top: 50%;
-    height: 100%;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    height: auto;
     width: 90%;
     transform: translate(-50%, -50%);
+    object-fit: cover;
 }
 
 #story {
@@ -261,9 +264,11 @@ a:not(.social-link a):not(.project-tile a):hover {
     }
 
     #navbar{
-        width: 100vw;
+        width: 100%;
         height: 50px;
         z-index: 1;
+        display: flex;
+        justify-content: flex-end;
     }
     
     #nav2 ul {
@@ -271,7 +276,6 @@ a:not(.social-link a):not(.project-tile a):hover {
         display: flex;
         justify-content: space-evenly;
         flex-direction: row;
-        margin-left: 28%;
     }
     
     .links {
@@ -316,7 +320,7 @@ a:not(.social-link a):not(.project-tile a):hover {
     }
 }
 
-@media only screen and (max-height: 550px) {
+@media only screen and (max-height: 450px) {
     #welcome {
         width: 70%;
     }
@@ -328,9 +332,13 @@ a:not(.social-link a):not(.project-tile a):hover {
     .links {
         margin: 30px 10px;
     }
+
+    .fas {
+        font-size: 1.5rem;
+    }
 }
 
-@media only screen and (max-height: 550px) and (max-width: 699px) {
+@media only screen and (max-height: 550px) and (max-width: 701px) {
     #profile-pic {
         display: none;
     }
