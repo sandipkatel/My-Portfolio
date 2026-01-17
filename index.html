@@ -1,211 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css">
-        <title>Sandip Katel</title>
-        <link rel="icon" href="./Dependencies/blue_sandip.png">
-        <script src="https://kit.fontawesome.com/13d5e95ab5.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <header id = "navbar">
-            <nav id = "nav1">
-                <ul>
-                    <li class = "links"><a href = "#welcome-section"><i class="fas fa-house"></i><br>Home</a></li>
-                    <li class = "links"><a href = "#about-me"><i class="fas fa-user"></i><br>About</a></li>
-                    <li class = "links"><a href = "#projects"><i class="fas fa-terminal"></i><br>Projects</a></li>
-                    <li class = "links"><a href = "#contact"><i class="fas fa-envelope"></i><br>Contact</a></li>
-                </ul>
-            </nav>
-            <nav id = "nav2">
-                <ul>
-                    <li class = "links"><a href = "#welcome-section">Home</a></li>
-                    <li class = "links"><a href = "#about-me">About</a></li>
-                    <li class = "links"><a href = "#projects">Projects</a></li>
-                    <li class = "links"><a href = "#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div id = "welcome-section">
-                <div id = "welcome">
-                    <h1>Hey there! Welcome to my webpage</h1>
-                    <h1>I'm Sandip Katel,</h1>
-                    <p><i>a undergraduate student pursuing Computer Engineering</i></p>
-                    <p><i>at Pulchowk Engineering Campus, Tribhuvan University</i></p>
-                </div>
-                <div id = "profile-pic">
-                    <img src="./Dependencies/Sandip.png" alt = "Profile Picture" />
-                </div>
-            </div>
-            <div id = "about-me">
-                <header>
-                    <h1><u>About Me</u></h1>
-                </header>
-                <section id = "story">
-                    <p>Thanks for your interest, here is a quick story of me.</p>
-                    <p>Sandip Katel as an aspiring Computer Engineering AI enthusiast, he is deeply fascinated by the intersection of technology, artificial
-                        intelligence, and innovation. His insatiable curiosity drives him to explore new horizons, continuously learn, and contribute
-                        meaningfully to the field. With a solid foundation in computer engineering principles and a hunger for knowledge, he
-                        is committed to making a positive impact through cutting-edge solutions
-                    </p>
-                    <p>
-                        I do my work mainly in C, C++ and Python. Python and Data Science are my stronger section. Besides these I know 
-                        Web Development, Graphic Design and ML as well. I aim to delve deeper into AI engineering with all the resources available.
-                    </p>
-                </section>
-                <section id = "personal-intro">
-                    <table>
-                        <thead></thead>
-                        <tbody>
-                            <tr>
-                                <th>Name: </th>
-                                <td>Sandip Katel</td>
-                            </tr> 
-                            <!-- <tr>
-                                <th>Date of Birth: </th>
-                                <td>21<sup>st</sup> November, 2002</td>
-                            </tr> -->
-                            <!-- <tr>
-                                <th>Profession: </th>
-                                <td>Student</td>
-                            </tr> -->
-                            <!-- <tr>
-                                <th>Address: </th>
-                                <td>Bagbazar, Kathmandu</td>
-                            </tr> -->
-                            <tr>
-                                <th>College: </th>
-                                <td>Pulchowk Campus, IOE</td>
-                            </tr>
-                            <tr>
-                                <th>Degree of Major: </th>
-                                <td>Computer Engineering</td>
-                            </tr>
-                            <tr>
-                                <th>Skills: </th>
-                                <td>Web Development, Graphic Design, Data Science, Machine Learning</td>
-                            </tr>
-                            <tr>
-                                <th>Interest: </th>
-                                <td>Learning new and valuable skills</td>
-                            </tr>
-                            <tr>
-                                <th>Hobbies: </th>
-                                <td>Listening Music, Travelling, Watching TV Shows</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section> 
-                <section class = "resume button">
-                    <a href = "./Dependencies/cv.pdf" download="Sandip-CV" target="_blank"><button type="button"><i class="fa-solid fa-download"></i>Download CV</button></a>
-                </section>
-                <!-- <section class = "resume button">
-                    <a href = "./" download="Sandip-Resume" target="_blank"><button type="button"><i class="fa-solid fa-download"></i>  Download Resume</button></a>
-                </section> -->
-            </div>
-            <div id = "projects">
-                <header>
-                    <h1><u>Projects</u></h1>
-                </header>
-                <div id = "project-samples">
-                    <div class = "project-tile" id = "tribute-page">
-                        <a href = "https://github.com/sandipkatel/Tribute-Page" target = "_blank"><img src = "./Dependencies/Projects/tribute_page.png" alt = "Free code camp's project Tribute Page"/>
-                        <h4>Tribute Page</h4></a>
-                    </div>
-                    <div class = "project-tile" id = "portfolio">
-                        <a href = "https://github.com/sandipkatel/My-Portfolio" target = "_blank"><img src = "./Dependencies/Projects/portfolio.png" alt = "The website you are currently using" />
-                        <h4>My Portfolio Website</h4></a>
-                    </div>
-                    <div class = "project-tile" id = "sudoku">
-                        <a href = "https://github.com/sandipkatel/Sudoku.git" alt = "_blank">
-                            <img src = "./Dependencies/Projects/sudoku.png" alt = "Sample Project4" />
-                            <h4>Sudoku</h4>
-                        </a>
-                    </div>
-                    <div class = "project-tile" id = "phm">
-                        <a href = "https://github.com/sandipkatel/Nirogya" target = "_blank">
-                            <img src = "./Dependencies/Projects/phm.png" alt = "Sample Project4" />
-                            <h4>Personal Health Monitor</h4>
-                        </a>
-                    </div>
-                    <div class = "project-tile" id = "calculator">
-                        <a href = "" target = "_blank">
-                            <img src = "https://cdn.freecodecamp.org/testable-projects-fcc/images/calc.png" alt = "Sample Project3" />
-                            <h4>Calculator</h4>
-                        </a>
-                    </div>
-                    <div class = "project-tile" id = "ttt">
-                        <a href = "" target = "_blank">
-                            <img src = "https://cdn.freecodecamp.org/testable-projects-fcc/images/tic-tac-toe.png" alt = "Sample Project4" />
-                            <h4>Tic Tac Toe</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class = "button">
-                    <button type="buttom">Show More ></button>
-                </div>
-            </div>
-            <div id = "contact">
-                <header>
-                    <h1><u>Contact Me</u></h1>
-                    <p>I am open for any suggestion or to have a chat.</p>
-                </header>
-                <div class = "contact-info">
-                    <table>
-                        <thead></thead>
-                        <tbody>
-                            <tr>
-                                <th>Address: </th>
-                                <td><a href = "https://maps.app.goo.gl/HThBFPXbdDCoJzjk9" target = "_blank">
-                                    Bagbazar, Kathmandu, Nepal
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <th>Email: </th>
-                                <td><a href = "mailto:babusandipkatel@gmail.com" target = "_blank">babusandipkatel@gmail.com</a></td>
-                            </tr>
-                            <tr>
-                                <th>Phone: </th>
-                                <td><a href = "tel:+9779827759158" target = "_blank">+977 9827759158</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div id = "message">
-                    <!--<form action="mailto:babusandipkatel@gmail.com" method="post" enctype="text/plain" autocomplete="on">
-                        <input id="name" name="name" type="text" placeholder="Name" required>
-                        <input id="email" name="email" type="email" placeholder="Email" required>
-                        <input id="subject" name="subject" type="text" placeholder="Subject">
-                        <textarea id="message" name="message" rows="4" cols="60" placeholder="Message..." required></textarea>
-                        <button id="submit" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-                    </form>-->
-                    <form action="https://getform.io/f/ebpdyplb" method="POST" autocomplete="on">
-                        <input id="name" name="name" type="text" placeholder="Name" required>
-                        <input id="email" name="email" type="email" placeholder="Email" required>
-                        <input id="subject" name="subject" type="text" placeholder="Subject">
-                        <textarea id="message" name="message" rows="4" cols="60" placeholder="Message..." required></textarea>
-                        <!-- add hidden Honeypot input to prevent spams -->
-                        <input type="hidden" name="_gotcha" style="display:none !important">
-                        <button id="submit" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-                      </form>
-                </div>
-                <div class = "contact-link">
-                    <h2>Find me also on </h2>
-                    <ul>
-                        <li class = "social-link"><a href = "https://www.linkedin.com/in/sandip-katel-7904b9198/" target = "_blank"><i class="fa-brands fa-linkedin"></i><u> LinkedIn</u></a></li>
-                        <li class = "social-link"><a href = "https://www.facebook.com/sandip.katel.9" target = "_blank"><i class="fa-brands fa-facebook"></i><u> Facebook</u></a></li>
-                        <li class = "social-link"><a href = "https://github.com/sandipkatel" target = "_blank"><i class="fa-brands fa-github"></i><u> Github</u></a></li>
-                        <li class = "social-link"><a href = "https://twitter.com/KatelSandip" target = "_blank"><i class="fa-brands fa-x-twitter"></i><u> Twitter</u></a></li>
-                    </ul>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <p><b>**I am just igniting one day I will burn all down.</b></p>
-            <p> Copyright &copy 2024 All rights reserved</p>
-        </footer>
-    </body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandip Katel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #fff;
+      }
+
+      .container {
+        max-width: 1200px;
+        width: 100%;
+        text-align: center;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      h1 {
+        color: #668bea;
+        font-size: 3em;
+        margin: 20px 0;
+        font-weight: bold;
+        text-shadow: 0 0 20px rgba(102, 139, 234, 0.5);
+      }
+
+      .subtitle {
+        color: #8ba3d7;
+        font-size: 1.4em;
+        margin-bottom: 40px;
+        font-weight: 600;
+      }
+
+      .image-container {
+        margin: 30px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .message {
+        color: #e0e6f0;
+        font-size: 1.2em;
+        line-height: 1.8;
+        margin: 40px auto;
+        max-width: 700px;
+      }
+
+      .message strong {
+        color: #668bea;
+        font-weight: 700;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px;
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .section-title {
+        color: #668bea;
+        font-size: 1.3em;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: rgba(102, 139, 234, 0.1);
+        border: 2px solid rgba(102, 139, 234, 0.3);
+        border-radius: 50%;
+        color: #668bea;
+        font-size: 1.4em;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: #668bea;
+        color: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(102, 139, 234, 0.4);
+      }
+
+      .border-box {
+        width: 2px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 1px;
+      }
+
+      .contact-box p {
+        color: #b8c5d8;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+      }
+
+      .email {
+        color: #668bea;
+        font-size: 1.3em;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 25px;
+        background: rgba(102, 139, 234, 0.1);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(102, 139, 234, 0.3);
+      }
+
+      .email:hover {
+        background: rgba(102, 139, 234, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(102, 139, 234, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2em;
+        }
+
+        .subtitle {
+          font-size: 1.2em;
+        }
+
+        .message {
+          font-size: 1.05em;
+        }
+
+        .info-box {
+          padding: 30px 20px;
+          flex-direction: column;
+        }
+
+        .social-link {
+          width: 45px;
+          height: 45px;
+          font-size: 1.2em;
+        }
+
+        .border-box {
+          width: 90%;
+          height: 2px;
+        }
+
+        .email {
+          font-size: 1.1em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.8em;
+        }
+
+        .subtitle {
+          font-size: 1em;
+        }
+
+        .message {
+          font-size: 1em;
+        }
+
+        .social-links {
+          gap: 15px;
+        }
+
+        .social-link {
+          width: 42px;
+          height: 42px;
+          font-size: 1.1em;
+        }
+
+        .info-box {
+          padding: 25px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Maintenance Break!</h1>
+      <div class="subtitle">
+        Oops! Sandip is Again Building Something Awesome
+      </div>
+
+      <div class="image-container">
+        <img
+          src="Dependencies/under-maintenance.png"
+          alt="website under construction"
+        />
+      </div>
+
+      <p class="message">
+        My portfolio website is currently under reconstruction and will come
+        back with something <strong>BIGGER</strong>, <strong>BETTER</strong>,
+        and more amazing than ever!
+      </p>
+
+      <div class="info-box">
+        <div class="reachout-box">
+          <p class="section-title">Stay Connected</p>
+          <p style="color: #b8c5d8; margin-bottom: 20px">
+            Follow me on social media:
+          </p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/sandipkatel/"
+              target="_blank"
+              class="social-link"
+              title="LinkedIn"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/sandipkatel"
+              target="_blank"
+              class="social-link"
+              title="GitHub"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://facebook.com/sandipkatel03"
+              target="_blank"
+              class="social-link"
+              title="Facebook"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://instagram.com/__sandip_katel__"
+              target="_blank"
+              class="social-link"
+              title="Instagram"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="border-box"></div>
+        <div class="contact-box">
+          <p>For any inquiries, feel free to reach out:</p>
+          <a href="mailto:sandip@skatel.com.np" class="email">
+            <i class="fas fa-envelope"></i>
+            sandip@skatel.com.np
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
