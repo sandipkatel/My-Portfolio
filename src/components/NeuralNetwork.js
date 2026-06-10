@@ -10,21 +10,19 @@ const MONO = { R: 191, G: 196, B: 198 };
 function sigmoid(x) { return 1 / (1 + Math.exp(-x)); }
 function lerp(a, b, t) { return a + (b - a) * t; }
 
-export default function NeuralNetwork({ hoveredPhase, onTooltip, onOutputClick, activePath }) {
+export default function NeuralNetwork({ onTooltip, onOutputClick, activePath }) {
   const canvasRef = useRef(null);
   const animRef = useRef(0);
   const neuronsRef = useRef([]);
   const connectionsRef = useRef([]);
 
-  // Keep latest props in refs — canvas loop reads these without re-init
-  const hoveredPhaseRef = useRef(null);
+  // Keep latest props in refs - canvas loop reads these without re-init
   const activePathRef = useRef(null);
   // wave: 0 = idle, positive = wave spreading right→left (output to input)
   // we go from layer 5 down to 0, so wave value = 5 - progress
   const waveRef = useRef(-1);       // -1 = inactive
   const waveDirRef = useRef("in"); // "in" spreading inward
 
-  useEffect(() => { hoveredPhaseRef.current = hoveredPhase; }, [hoveredPhase]);
 
   useEffect(() => {
     activePathRef.current = activePath;
@@ -103,7 +101,6 @@ export default function NeuralNetwork({ hoveredPhase, onTooltip, onOutputClick, 
 
       const neurons = neuronsRef.current;
       const connections = connectionsRef.current;
-      const hPhase = hoveredPhaseRef.current;
       const path = activePathRef.current;
 
       // Advance wave (sweeping from layer 5 down to -1)
@@ -142,8 +139,7 @@ export default function NeuralNetwork({ hoveredPhase, onTooltip, onOutputClick, 
           // Idle oscillation
           const idle = sigmoid(Math.sin(time * 0.5 + n.bias + li * 0.3 + ni * 0.2) * 1.2);
           const base = n.baseActivation * 0.7 + idle * 0.3;
-          const phaseBoost = hPhase === li ? 0.25 : 0;
-          n.activation = Math.min(1, base + phaseBoost + n.highlightT * 0.25);
+          n.activation = Math.min(1, base +  n.highlightT * 0.25);
         });
       });
 
@@ -177,7 +173,7 @@ export default function NeuralNetwork({ hoveredPhase, onTooltip, onOutputClick, 
         ctx.lineWidth = Math.abs(conn.weight) * 0.9 + 0.3 + hl * 1.5;
         ctx.stroke();
 
-        // Signal dots — denser & faster on active paths
+        // Signal dots - denser & faster on active paths
         if (conn.signalActive) {
           conn.signal += conn.signalSpeed * (1 + hl * 4);
           if (conn.signal > 1) {
@@ -228,7 +224,7 @@ export default function NeuralNetwork({ hoveredPhase, onTooltip, onOutputClick, 
           ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
           ctx.fillStyle = bg; ctx.fill();
 
-          // Border — output nodes get thicker ring
+          // Border - output nodes get thicker ring
           ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
           ctx.strokeStyle = `rgba(${R},${G},${B},${(0.35 + n.activation * 0.45 + hl * 0.3).toFixed(2)})`;
           ctx.lineWidth = isOutput ? 2 : 1.2 + hl * 0.8;
@@ -262,12 +258,11 @@ export default function NeuralNetwork({ hoveredPhase, onTooltip, onOutputClick, 
       JOURNEY_PHASES.forEach((phase, li) => {
         const layer = neurons[li];
         if (!layer) return;
-        const isH = hPhase === li;
-        ctx.fillStyle = isH ? "rgba(255,255,255,0.85)" : "rgba(148,163,184,0.4)";
-        ctx.font = `${isH ? "bold " : ""}10px 'Space Grotesk', sans-serif`;
+        ctx.fillStyle = "rgba(148,163,184,0.4)";
+        ctx.font = `10px 'Space Grotesk', sans-serif`;
         ctx.textAlign = "center";
         ctx.fillText(phase.label, layer[0].x, padY - 22);
-        ctx.fillStyle = isH ? "rgba(220,220,220,0.55)" : "rgba(71,85,105,0.35)";
+        ctx.fillStyle =  "rgba(71,85,105,0.35)";
         ctx.font = "9px monospace";
         ctx.fillText(phase.year, layer[0].x, padY - 10);
       });

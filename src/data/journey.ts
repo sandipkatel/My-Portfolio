@@ -2,7 +2,7 @@ export interface SkillNode {
   id: string;
   label: string;
   year: number;
-  proficiency: number; // 0..1 — drives base activation/glow
+  proficiency: number; // 0..1 - drives base activation/glow
   layerIndex: number;
   neuronIndex: number;
 }
@@ -21,14 +21,14 @@ export interface OutputPath {
   label: string;
   description: string;
   color: { R: number; G: number; B: number };
-  // All ancestor node ids that contributed — ordered loosely input→output
+  // All ancestor node ids that contributed - ordered loosely input→output
   ancestorNodes: string[];
 }
 
 // ─── Layer sizes: [6, 9, 11, 11, 9, 4] ───────────────────────────────────────
 
 export const JOURNEY_PHASES: JourneyPhase[] = [
-  { layerIndex: 0, label: "Foundation",  year: "2022-23", description: "Core CS & math — algorithms, linear algebra, calculus, statistics." },
+  { layerIndex: 0, label: "Foundation",  year: "2022-23", description: "Core CS & math - algorithms, linear algebra, calculus, statistics." },
   { layerIndex: 1, label: "Exploration", year: "2023-24", description: "First taste of ML, data wrangling, Python ecosystem & side projects." },
   { layerIndex: 2, label: "Depth",       year: "2024-25", description: "Deep learning, research papers, internships and first real models." },
   { layerIndex: 3, label: "Engineering", year: "2025-26", description: "Production ML, MLOps, pipelines, APIs and scalable systems." },
@@ -37,7 +37,7 @@ export const JOURNEY_PHASES: JourneyPhase[] = [
 ];
 
 export const SKILL_NODES: SkillNode[] = [
-  // ── Layer 0 — Foundation (6) ──────────────────────────────────────────────
+  // ── Layer 0 - Foundation (6) ──────────────────────────────────────────────
   { id: "l0_math",    label: "Linear Algebra", year: 2018, proficiency: 0.85, layerIndex: 0, neuronIndex: 0 },
   { id: "l0_calc",    label: "Calculus",       year: 2018, proficiency: 0.80, layerIndex: 0, neuronIndex: 1 },
   { id: "l0_stats",   label: "Statistics",     year: 2018, proficiency: 0.90, layerIndex: 0, neuronIndex: 2 },
@@ -45,7 +45,7 @@ export const SKILL_NODES: SkillNode[] = [
   { id: "l0_python",  label: "Python",         year: 2019, proficiency: 0.95, layerIndex: 0, neuronIndex: 4 },
   { id: "l0_sql",     label: "SQL",            year: 2019, proficiency: 0.82, layerIndex: 0, neuronIndex: 5 },
 
-  // ── Layer 1 — Exploration (9) ─────────────────────────────────────────────
+  // ── Layer 1 - Exploration (9) ─────────────────────────────────────────────
   { id: "l1_numpy",   label: "NumPy",          year: 2019, proficiency: 0.90, layerIndex: 1, neuronIndex: 0 },
   { id: "l1_pandas",  label: "Pandas",         year: 2019, proficiency: 0.92, layerIndex: 1, neuronIndex: 1 },
   { id: "l1_sklearn", label: "Scikit-learn",   year: 2019, proficiency: 0.88, layerIndex: 1, neuronIndex: 2 },
@@ -56,7 +56,7 @@ export const SKILL_NODES: SkillNode[] = [
   { id: "l1_prob",    label: "Probability",    year: 2020, proficiency: 0.83, layerIndex: 1, neuronIndex: 7 },
   { id: "l1_feature", label: "Feature Eng.",   year: 2020, proficiency: 0.86, layerIndex: 1, neuronIndex: 8 },
 
-  // ── Layer 2 — Depth (11) ──────────────────────────────────────────────────
+  // ── Layer 2 - Depth (11) ──────────────────────────────────────────────────
   { id: "l2_pytorch", label: "PyTorch",        year: 2020, proficiency: 0.92, layerIndex: 2, neuronIndex: 0 },
   { id: "l2_tf",      label: "TensorFlow",     year: 2020, proficiency: 0.80, layerIndex: 2, neuronIndex: 1 },
   { id: "l2_cnn",     label: "CNN",            year: 2020, proficiency: 0.88, layerIndex: 2, neuronIndex: 2 },
@@ -69,7 +69,7 @@ export const SKILL_NODES: SkillNode[] = [
   { id: "l2_paper",   label: "Paper Reading",  year: 2021, proficiency: 0.80, layerIndex: 2, neuronIndex: 9 },
   { id: "l2_intern",  label: "Internship",     year: 2021, proficiency: 0.78, layerIndex: 2, neuronIndex: 10 },
 
-  // ── Layer 3 — Engineering (11) ────────────────────────────────────────────
+  // ── Layer 3 - Engineering (11) ────────────────────────────────────────────
   { id: "l3_docker",   label: "Docker",         year: 2021, proficiency: 0.85, layerIndex: 3, neuronIndex: 0 },
   { id: "l3_api",      label: "REST APIs",      year: 2021, proficiency: 0.90, layerIndex: 3, neuronIndex: 1 },
   { id: "l3_fastapi",  label: "FastAPI",        year: 2022, proficiency: 0.88, layerIndex: 3, neuronIndex: 2 },
@@ -82,7 +82,7 @@ export const SKILL_NODES: SkillNode[] = [
   { id: "l3_test",     label: "Testing",        year: 2022, proficiency: 0.83, layerIndex: 3, neuronIndex: 9 },
   { id: "l3_postgres", label: "PostgreSQL",     year: 2022, proficiency: 0.85, layerIndex: 3, neuronIndex: 10 },
 
-  // ── Layer 4 — Research (9) ────────────────────────────────────────────────
+  // ── Layer 4 - Research (9) ────────────────────────────────────────────────
   { id: "l4_transformer", label: "Transformers", year: 2022, proficiency: 0.90, layerIndex: 4, neuronIndex: 0 },
   { id: "l4_attention",   label: "Attention",    year: 2022, proficiency: 0.88, layerIndex: 4, neuronIndex: 1 },
   { id: "l4_finetune",    label: "Fine-tuning",  year: 2022, proficiency: 0.87, layerIndex: 4, neuronIndex: 2 },
@@ -93,7 +93,7 @@ export const SKILL_NODES: SkillNode[] = [
   { id: "l4_multimodal",  label: "Multimodal",   year: 2023, proficiency: 0.78, layerIndex: 4, neuronIndex: 7 },
   { id: "l4_research",    label: "Research",     year: 2023, proficiency: 0.85, layerIndex: 4, neuronIndex: 8 },
 
-  // ── Layer 5 — Output (4) ──────────────────────────────────────────────────
+  // ── Layer 5 - Output (4) ──────────────────────────────────────────────────
   { id: "out_ml",   label: "ML Engineering",   year: 2024, proficiency: 0.95, layerIndex: 5, neuronIndex: 0 },
   { id: "out_data", label: "Data Engineering", year: 2024, proficiency: 0.90, layerIndex: 5, neuronIndex: 1 },
   { id: "out_llm",  label: "LLM / GenAI",      year: 2024, proficiency: 0.92, layerIndex: 5, neuronIndex: 2 },
