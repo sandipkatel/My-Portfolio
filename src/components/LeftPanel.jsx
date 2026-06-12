@@ -66,18 +66,7 @@ export default function LeftPanel() {
           </a>
         </div>
 
-        <div className="mt-12 flex gap-10">
-          {[
-            { val: '6+', label: 'Projects shipped' },
-            { val: '3+', label: 'Papers & articles' },
-            { val: '∞', label: 'Curiosity' },
-          ].map(s => (
-            <div key={s.label}>
-              <div className="font-mono text-[1.4rem] font-bold text-[var(--text-primary)]">{s.val}</div>
-              <div className="text-[0.72rem] tracking-[0.05em] text-[var(--text-muted)]">{s.label}</div>
-            </div>
-          ))}
-        </div>
+        
       </div>
   );
 }

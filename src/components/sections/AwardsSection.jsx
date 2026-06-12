@@ -13,14 +13,14 @@ export default function AwardsSection() {
   const ref = useReveal();
 
   return (
-    <section id="awards" style={{ padding: '7rem 1.5rem', background: 'var(--bg-secondary)' }}>
+    <section id="awards" style={{ padding: '7rem 1.5rem'}}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }} ref={ref}>
 
         <div className="reveal" style={{ marginBottom: '3.5rem' }}>
-          <p className="section-eyebrow" style={{ marginBottom: '0.75rem' }}>06 - Awards</p>
+          <p className="section-eyebrow" style={{ marginBottom: '0.75rem' }}>06 — Awards</p>
           <h2 style={headingStyle}>Recognition</h2>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '0.75rem', maxWidth: '480px' }}>
-            Things that felt meaningful to receive - listed not to brag, but because they mark moments that shaped how I work.
+            Things that felt meaningful to receive — listed not to brag, but because they mark moments that shaped how I work.
           </p>
         </div>
 

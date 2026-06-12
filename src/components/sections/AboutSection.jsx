@@ -1,7 +1,27 @@
 'use client';
+import { useState } from 'react';
 import { useReveal } from '../useReveal';
-import { about } from '@/data/about';
+import { about, skills } from '@/data/about';
 
+/* ── Syntax-highlight colour tokens ─────────────────────────────── */
+const A = {
+  key:     '#7c6ef5',
+  string:  '#2dd4bf',
+  bracket: '#8888a8',
+  comment: '#44445a',
+  url:     '#6a9fb5',
+  green:   '#28c840',
+  number:  '#f5a623',
+};
+
+const toSlug = str =>
+  str.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/__+/g, '_');
+
+function C({ c, children }) {
+  return <span style={{ color: A[c] || A.bracket }}>{children}</span>;
+}
+
+/* ── Social links ────────────────────────────────────────────────── */
 const SOCIAL_LINKS = [
   {
     href: about.github, label: 'GitHub',
@@ -21,138 +41,239 @@ const SOCIAL_LINKS = [
   },
 ];
 
+/* ── Component ───────────────────────────────────────────────────── */
 export default function AboutSection() {
   const ref = useReveal();
+  const [collapsed, setCollapsed] = useState({});
+  const toggle = key => setCollapsed(p => ({ ...p, [key]: !p[key] }));
+
+  const totalSkills = skills.reduce((a, c) => a + c.items.length, 0);
 
   return (
-    <section id="about" className="px-6 py-28">
-      <div ref={ref} className="mx-auto max-w-[1200px]">
+    <section id="about" style={{ padding: '7rem 1.5rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }} ref={ref}>
 
-        {/* Section header */}
-        <div className="reveal mb-14">
-          <p className="section-eyebrow mb-3">01 — About</p>
-          <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-bold tracking-[-0.03em] text-[var(--text-primary)]">
+        {/* ── Section header ── */}
+        <div className="reveal" style={{ marginBottom: '3.5rem' }}>
+          <p className="section-eyebrow" style={{ marginBottom: '0.75rem' }}>01 — About</p>
+          <h2 style={{
+            fontSize: 'clamp(1.8rem,3.5vw,2.6rem)',
+            fontWeight: 700,
+            letterSpacing: '-0.03em',
+            color: 'var(--text-primary)',
+          }}>
             The person behind the models
           </h2>
         </div>
 
-        <div className="about-grid grid grid-cols-[360px_1fr] items-start gap-16 max-[900px]:grid-cols-1 max-[900px]:gap-10">
+        {/* ── Two-column grid ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0,360px) 1fr',
+          gap: '3.5rem',
+          alignItems: 'start',
+        }}
+          className="about-merged-grid"
+        >
 
-          {/* ── Photo column: IDE card ── */}
-          <div className="reveal reveal-delay-1 relative">
+          {/* ── LEFT — identity + bio + socials ── */}
+          <div className="reveal reveal-delay-1">
 
-            {/* IDE card wrapper */}
-            <div className="overflow-hidden rounded-[12px] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
-
-              {/* IDE title bar */}
-              <div className="flex items-center gap-[0.6rem] border-b border-[var(--border)] bg-[#0d0d1a] px-4 py-[0.55rem]">
-                {/* Traffic lights */}
-                <div className="flex gap-[5px]">
-                  {['#ff5f57','#febc2e','#28c840'].map(c => (
-                    <div key={c} className="h-[10px] w-[10px] rounded-full opacity-85" style={{ background: c }} />
-                  ))}
-                </div>
-                {/* Fake tab */}
-                <div className="ml-2 flex items-center gap-[0.35rem] rounded-t-[4px] border border-[var(--border)] border-b-[var(--bg-secondary)] bg-[var(--bg-secondary)] px-3 py-[0.2rem] font-mono text-[0.68rem] text-[var(--accent-violet)]">
-                  <span className="text-[0.7rem] text-[var(--accent-cyan)]">🐍</span>
-                  sandip.py
-                </div>
-              </div>
-
-              {/* Line numbers + photo */}
-              <div className="relative flex">
-                {/* Line numbers gutter */}
-                <div className="min-w-[32px] select-none bg-[#0d0d1a] px-[0.6rem] py-3 text-right font-mono text-[0.62rem] leading-none text-[var(--text-muted)]">
-                  {Array.from({ length: 18 }).map((_, i) => (
-                    <span key={i} className={`block py-[1.5px] ${i === 2 || i === 8 || i === 14 ? 'opacity-100' : 'opacity-35'}`}>
-                      {i + 1}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Photo */}
-                <div className="relative min-h-[380px] flex-1 bg-[var(--bg)]">
-                  <img
-                    src="/sandip.jpeg"
-                    alt="Sandip Katel"
-                    className="block h-full w-full object-cover object-[center_top]"
-                  />
-
-                  {/* Bottom overlay: syntax-highlighted "comment" */}
-                  <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,rgba(10,10,15,0.95)_0%,rgba(10,10,15,0.6)_60%,transparent_100%)] px-4 pb-[0.9rem] pt-5 font-mono text-[0.68rem] leading-[1.7]">
-                    <div className="text-[#6a737d]"># Kathmandu, Nepal</div>
-                    <div>
-                      <span className="text-[var(--accent-violet)]">def </span>
-                      <span className="text-[var(--accent-cyan)]">who_am_i</span>
-                      <span className="text-[var(--text-secondary)]">():</span>
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-[var(--accent-amber)]">return </span>
-                      <span className="text-[#a8d8a8]">&quot;AI Engineer + Researcher&quot;</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* IDE status bar */}
-              <div className="flex items-center justify-between bg-[var(--accent-violet)] px-4 py-[0.25rem]">
-                <span className="font-mono text-[0.6rem] tracking-[0.08em] text-[rgba(255,255,255,0.85)]">
-                  Python 3.11 · UTF-8
-                </span>
-                <span className="font-mono text-[0.6rem] tracking-[0.08em] text-[rgba(255,255,255,0.85)]">
-                  Ln 1, Col 1
-                </span>
-              </div>
+            {/* Bio paragraphs */}
+            <div style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {about.bio.map((para, i) => (
+                <p key={i} style={{
+                  fontSize: '0.95rem',
+                  lineHeight: 1.8,
+                  color: 'var(--text-secondary)',
+                }}>
+                  {para}
+                </p>
+              ))}
             </div>
           </div>
 
-          {/* ── Bio column ── */}
-          <div>
-            <div className="reveal reveal-delay-2">
+          {/* ── RIGHT — skills API viewer ── */}
+          <div className="reveal reveal-delay-2" style={{
+            borderRadius: '12px',
+            overflow: 'hidden',
+            border: '1px solid var(--border)',
+            background: 'var(--bg-card)',
+            boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
+          }}>
 
-              {/* Const intro block */}
-              <div className="mb-7 rounded-r-[8px] border border-[var(--border)] border-l-[3px] border-l-[var(--accent-violet)] bg-[var(--bg-card)] px-5 py-4 font-mono text-[0.8rem] leading-[1.7]">
-                <span className="text-[var(--accent-violet)]">const </span>
-                <span className="text-[var(--accent-cyan)]">dev</span>
-                <span className="text-[var(--text-secondary)]"> = {'{'}</span>
-                <br />
-                {[
-                  { key: '  name', val: `"Sandip Katel"`, vc: '#a8d8a8' },
-                  { key: '  role', val: `"AI Engineer & Researcher"`, vc: '#a8d8a8' },
-                  { key: '  based', val: `"Kathmandu, Nepal 🇳🇵"`, vc: '#a8d8a8' },
-                  { key: '  open_to', val: `"research + product"`, vc: '#a8d8a8' },
-                ].map(l => (
-                  <div key={l.key}>
-                    <span className="text-[var(--accent-amber)]">{l.key}</span>
-                    <span className="text-[var(--text-muted)]">: </span>
-                    <span style={{ color: l.vc }}>{l.val}</span>
-                    <span className="text-[var(--text-muted)]">,</span>
+            {/* URL bar */}
+            <div style={{
+              background: '#0d0d1a',
+              borderBottom: '1px solid var(--border)',
+              padding: '0.6rem 1rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+            }}>
+              <div style={{ display: 'flex', gap: '5px', flexShrink: 0 }}>
+                {['#ff5f57', '#febc2e', '#28c840'].map(c => (
+                  <div key={c} style={{
+                    width: '10px', height: '10px',
+                    borderRadius: '50%', background: c, opacity: 0.85,
+                  }} />
+                ))}
+              </div>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.68rem', fontWeight: 700,
+                color: A.green, background: 'rgba(40,200,64,0.1)',
+                border: '1px solid rgba(40,200,64,0.2)', borderRadius: '4px',
+                padding: '0.15rem 0.5rem', flexShrink: 0,
+              }}>
+                GET
+              </span>
+              <div style={{
+                flex: 1, background: 'rgba(255,255,255,0.04)',
+                border: '1px solid var(--border)', borderRadius: '6px',
+                padding: '0.25rem 0.75rem', fontFamily: 'var(--font-mono)',
+                fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.2rem',
+              }}>
+                <span style={{ color: A.url }}>https://</span>
+                <span style={{ color: 'var(--text-secondary)' }}>sandipkatel.dev</span>
+                <span style={{ color: A.key }}>/api/skills</span>
+              </div>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.68rem',
+                fontWeight: 600, color: A.green, flexShrink: 0,
+              }}>
+                200 OK
+              </span>
+            </div>
+
+            {/* Response headers */}
+            <div style={{
+              background: '#0d0d1a',
+              borderBottom: '1px solid var(--border-subtle)',
+              padding: '0.35rem 1.25rem',
+              display: 'flex', gap: '1.5rem', flexWrap: 'wrap',
+            }}>
+              {[
+                ['Content-Type', 'application/json'],
+                ['X-Total-Skills', `${totalSkills}`],
+                ['X-Clusters', `${skills.length}`],
+              ].map(([k, v]) => (
+                <span key={k} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: A.comment }}>
+                  <span style={{ color: A.url }}>{k}:</span>{' '}
+                  <span style={{ color: 'var(--text-muted)' }}>{v}</span>
+                </span>
+              ))}
+            </div>
+
+            {/* JSON body */}
+            <div style={{
+              padding: '1.4rem 1.75rem',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.83rem',
+              lineHeight: 2,
+              overflowX: 'auto',
+            }}>
+              <div><C c="bracket">{'{'}</C></div>
+
+              <div style={{ paddingLeft: '1.5rem' }}>
+                <C c="key">"status"</C><C c="bracket">: </C><C c="number">200</C><C c="bracket">,</C>
+              </div>
+              <div style={{ paddingLeft: '1.5rem' }}>
+                <C c="key">"message"</C><C c="bracket">: </C><C c="string">"OK"</C><C c="bracket">,</C>
+              </div>
+              <div style={{ paddingLeft: '1.5rem' }}>
+                <C c="key">"data"</C><C c="bracket">: {'{'}</C>
+              </div>
+
+              {skills.map((cluster, ci) => {
+                const key    = toSlug(cluster.cluster);
+                const isCol  = collapsed[key];
+                const isLast = ci === skills.length - 1;
+
+                return (
+                  <div key={key}>
+                    <div
+                      onClick={() => toggle(key)}
+                      style={{
+                        paddingLeft: '3rem',
+                        cursor: 'pointer',
+                        userSelect: 'none',
+                        display: 'flex',
+                        alignItems: 'baseline',
+                        gap: '0.3rem',
+                        borderRadius: '4px',
+                        transition: 'background 0.15s',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,110,245,0.04)'}
+                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                    >
+                      <span style={{
+                        color: A.comment, fontSize: '0.55rem',
+                        display: 'inline-block', width: '10px', flexShrink: 0,
+                        transition: 'transform 0.15s',
+                        transform: isCol ? 'rotate(-90deg)' : 'rotate(0deg)',
+                      }}>▾</span>
+
+                      <C c="key">"{key}"</C>
+                      <C c="bracket">: [</C>
+
+                      {isCol ? (
+                        <>
+                          <C c="comment"> … </C>
+                          <C c="bracket">]</C>
+                          {!isLast && <C c="bracket">,</C>}
+                          <span style={{ color: A.comment, fontSize: '0.65rem', marginLeft: '0.75rem' }}>
+                            {'// '}{cluster.cluster} · {cluster.items.length} skills
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          {cluster.items.map((name, si) => (
+                            <span key={name}>
+                              <C c="string">"{name}"</C>
+                              {si < cluster.items.length - 1 && <C c="bracket">, </C>}
+                            </span>
+                          ))}
+                          <C c="bracket">]</C>
+                          {!isLast && <C c="bracket">,</C>}
+                        </>
+                      )}
+                    </div>
                   </div>
-                ))}
-                <span className="text-[var(--text-secondary)]">{'}'}</span>
-              </div>
+                );
+              })}
 
-              {/* Bio paragraphs */}
-              <div className="mb-8 flex flex-col gap-[1.1rem]">
-                {about.bio.map((para, i) => (
-                  <p key={i} className="text-[0.95rem] leading-[1.8] text-[var(--text-secondary)]">
-                    {para}
-                  </p>
-                ))}
-              </div>
+              <div style={{ paddingLeft: '1.5rem' }}><C c="bracket">{'}'}</C></div>
+              <div><C c="bracket">{'}'}</C></div>
+            </div>
 
-              {/* Social links */}
-              <div className="mb-8 flex flex-wrap gap-[0.6rem]">
-                {SOCIAL_LINKS.map(s => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-[0.4rem] rounded-[6px] border border-[var(--border)] bg-transparent px-[0.85rem] py-[0.4rem] font-mono text-[0.78rem] text-[var(--text-secondary)] transition-all duration-200 hover:border-[var(--accent-violet)] hover:text-[var(--accent-violet)]"
-                    dangerouslySetInnerHTML={{ __html: `${s.icon}<span>${s.label}</span>` }}
-                  />
-                ))}
-              </div>
+            {/* Status bar */}
+            <div style={{
+              background: '#0d0d1a',
+              borderTop: '1px solid var(--border-subtle)',
+              padding: '0.35rem 1.25rem',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: A.comment }}>
+                click any key to collapse ↑
+              </span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: A.comment }}>
+                {skills.length} clusters · {totalSkills} skills
+              </span>
             </div>
           </div>
         </div>
+
+        {/* ── Responsive override ── */}
+        <style>{`
+          @media (max-width: 900px) {
+            .about-merged-grid {
+              grid-template-columns: 1fr !important;
+              gap: 2.5rem !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

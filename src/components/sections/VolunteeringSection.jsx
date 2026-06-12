@@ -6,7 +6,7 @@ export default function VolunteeringSection() {
   const ref = useReveal();
 
   return (
-    <section id="volunteering" style={{ padding: '7rem 1.5rem' }}>
+    <section id="volunteering" style={{ padding: '7rem 1.5rem'}}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }} ref={ref}>
 
         <div className="reveal" style={{ marginBottom: '3.5rem' }}>
