@@ -1,19 +1,33 @@
 @import 'tailwindcss';
 
 :root {
-  --bg: #0a0a0f;
-  --bg-secondary: #0f0f18;
-  --bg-card: #12121e;
-  --bg-card-hover: #16162a;
-  --border: #1e1e30;
-  --border-subtle: #161624;
-  --text-primary: #e8e8f0;
-  --text-secondary: #8888a8;
-  --text-muted: #44445a;
-  --accent-violet: #7c6ef5;
-  --accent-cyan: #2dd4bf;
-  --accent-amber: #f5a623;
-  --accent-rose: #f06292;
+  /* Backgrounds — shifted from blue-black to cyan-black tints */
+  --bg: #060b0f;
+  --bg-secondary: #091014;
+  --bg-card: #0b141a;
+  --bg-card-hover: #0e1a22;
+
+  /* Borders — cyan-tinted dark */
+  --border: #0f2530;
+  --border-subtle: #0b1c26;
+
+  /* Text */
+  --text-primary: #e2eff2;
+  --text-secondary: #dfedf0;
+  --text-muted: #3f494c;
+
+  /* Cyan accent family derived from #22D3EE */
+  --accent-cyan: #22d3ee;          /* primary — the spec color */
+  --accent-cyan-bright: #67e8f9;   /* +2 stops lighter, for highlights */
+  --accent-cyan-dim: #0e9ab0;      /* -2 stops darker, for hover/active */
+  --accent-cyan-glow: rgba(34, 211, 238, 0.15); /* ambient glow / bg tints */
+
+  /* Supporting accent palette — all harmonised with cyan */
+  --accent-teal: #2dd4bf;          /* analogous, warm-side */
+  --accent-sky: #38bdf8;           /* analogous, cool-side */
+  --accent-amber: #f59e0b;         /* complementary warmth */
+  --accent-rose: #fb7185;          /* complementary pop */
+
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -34,7 +48,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 110, 245, 0.25);
+  background: rgba(34, 211, 238, 0.22);
 }
 
 ::-webkit-scrollbar {
@@ -48,7 +62,7 @@ body {
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-violet);
+  background: var(--accent-cyan);
 }
 
 /* Scroll reveal */
@@ -72,7 +86,7 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent-violet);
+  color: var(--accent-cyan);
 }
 
 /* Grid noise texture */

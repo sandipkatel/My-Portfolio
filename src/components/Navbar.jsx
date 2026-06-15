@@ -1,27 +1,20 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Blogs', href: '#blogs' },
   { label: 'Volunteering', href: '#volunteering' },
   { label: 'Awards', href: '#awards' },
   { label: 'Contact', href: '#contact' },
-];
-
-const PAGE_LINKS = [
-  { label: 'Blog', href: '/blog' },
-  { label: 'Projects', href: '/projects' },
 ];
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const isHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -30,7 +23,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (!isHome) return;
     const sections = NAV_LINKS.map(l => l.href.replace('#', ''));
     const observers = [];
 
@@ -46,7 +38,7 @@ export default function Navbar() {
     });
 
     return () => observers.forEach(o => o.disconnect());
-  }, [isHome]);
+  }, []);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[rgba(10,10,15,0.92)] backdrop-blur-md border-b border-[var(--border-subtle)]' : 'bg-transparent border-b border-transparent'}`}>
@@ -61,7 +53,7 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-1 desktop-nav">
-          {isHome && NAV_LINKS.map(link => (
+          { NAV_LINKS.map(link => (
             <a
               key={link.href}
               href={link.href}
@@ -71,15 +63,6 @@ export default function Navbar() {
             >
               {link.label}
             </a>
-          ))}
-          {PAGE_LINKS.map(link => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-3 py-1 rounded-md text-[0.82rem] no-underline font-[var(--font-mono)] transition-all duration-200 tracking-[0.02em] ${pathname === link.href ? 'text-[var(--accent-violet)] bg-[rgba(124,110,245,0.08)]' : 'text-[var(--text-secondary)]'}`}
-            >
-              {link.label}
-            </Link>
           ))}
         </div>
 
@@ -101,17 +84,11 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-[rgba(10,10,15,0.98)] border-t border-[var(--border)] p-4 flex flex-col gap-2 mobile-menu">
-          {isHome && NAV_LINKS.map(link => (
+          { NAV_LINKS.map(link => (
             <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
               className={`py-2 text-[0.9rem] no-underline font-[var(--font-mono)] ${activeSection === link.href.replace('#', '') ? 'text-[var(--accent-violet)]' : 'text-[var(--text-secondary)]'}`}>
               {link.label}
             </a>
-          ))}
-          {PAGE_LINKS.map(link => (
-            <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
-              className={`py-2 text-[0.9rem] no-underline font-[var(--font-mono)] ${pathname === link.href ? 'text-[var(--accent-violet)]' : 'text-[var(--text-secondary)]'}`}>
-              {link.label}
-            </Link>
           ))}
         </div>
       )}

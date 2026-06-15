@@ -57,14 +57,14 @@ export default function LeftPanel() {
           turning research insights into scalable production solution.
         </p>
 
-        <div className="flex flex-wrap gap-4">
+        {/* <div className="flex flex-wrap gap-4">
           <a href="#projects" className="inline-block rounded-[8px] bg-[var(--accent-violet)] px-6 py-[0.65rem] font-mono text-[0.85rem] font-semibold tracking-[0.03em] text-white transition-all duration-200 ease-in-out hover:opacity-90">
             View Projects
           </a>
           <a href="#contact" className="inline-block rounded-[8px] border border-[var(--border)] bg-transparent px-6 py-[0.65rem] font-mono text-[0.85rem] tracking-[0.03em] text-[var(--text-secondary)] transition-all duration-200 ease-in-out hover:border-[var(--accent-violet)] hover:text-[var(--text-primary)]">
             Get in Touch
           </a>
-        </div>
+        </div> */}
 
         
       </div>
